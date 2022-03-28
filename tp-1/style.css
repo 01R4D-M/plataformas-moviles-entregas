@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f6f6f6;
+    font-family: sans-serif;
+    font-size: calc(1em * 0.875);
+    line-height: 1.6;
+}
+
+#content {
+    background-color: #ffffff;
+    padding: 1.25em 1.5em 1.5em 1.5em;
+    margin-left: 11em;
+    margin-top: -1px;
+    border: 1px solid #a7d7f9;
+    border-right-width: 0;
+    border-image: linear-gradient(to bottom, rgba(167,215,249,0), #a7d7f9 2%) 1;
+}
+
+.infobox {
+    width: 22.7em;
+    line-height: 1.4em;
+    text-align: left;
+    padding: .23em;
+    border: 1px solid #B4BBC8;
+    background-color: #f9f9f9;
+    color: #000;
+    margin: 0.5em 0 0.7em 1.2em;
+    padding: 0.4em;
+    clear: right;
+    float: right;
+    font-size: 90%;
+}
+
+.cabecera {
+    font-size: 140%;
+    font-weight: bolder;
+    height: 45px;
+    line-height: 1.2em;
+    vertical-align: middle;
+}
+
+.infobox th, .infobox td {
+    vertical-align: top;
+}
+
+.edificio {
+    background: url(//upload.wikimedia.org/wikipedia/commons/f/ff/Picto_infobox_enterprise.png) no-repeat top right;
+}
+
+.comunicacion {
+    background: url(//upload.wikimedia.org/wikipedia/commons/a/a2/Picto_infobox_antenna.png) no-repeat top right;
+}
+
+h1, h2 {
+    text-decoration: none;
+    border-bottom: 1px solid #a2a9b1;
+    font-family: 'Linux Libertine','Georgia','Times',serif;
+    font-weight: normal;
+    overflow: hidden;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1.6;
+    padding-top: 0.5em;
+    margin-top: 0.3em;
+}
+
+h4 {
+    font-weight: bold;
+    line-height: 1.6;
+    margin-top: 0.3em;
+    padding-top: 0.5em;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+.table-final {
+    background-color: #f8f9fa;
+    color: #202122;
+    margin: 1em 0;
+    border: 1px solid #a2a9b1;
+    border-collapse: collapse;
+}
+
+.table-final caption {
+    background: gray;
+    color: white;
+    text-align: center;
+}
+
+.table-final td, .table-final th {
+    border: 1px solid #a2a9b1;
+    padding: 0.2em 0.4em;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#logo img {
+    width: 10em;
+    height: 160px;
+    margin-left: 5.5em;
+    transform: translate(-50%, 0);
+}
+
+footer {
+    margin-left: 11em;
+    padding: 1.25em;
+}
+
+footer p {
+    color: #202122;
+    margin: 0;
+    padding: 0.5em 0;
+    line-height: 1.4;
+    font-size: 0.75em;
+}
