@@ -47,7 +47,20 @@
 }
 
 @media (hover:hover) {
-    /* este media query funciona en todos los navegadores a excepcion de internet explorer */
+    /*
+    Este media query es compatible con los siguientes navegadores:
+    Chrome: 38
+    Edge: 12
+    Firefox: 64
+    Opera: 28
+    Safari: 9
+    Webview Android: 38
+    Chrome Android: 50
+    Forefox for Android: 64
+    Opera Android: 28
+    Safari on IOS: 9
+    Samsung Internet: 5.0
+    */
     blockquote {
         background-color: #ccddaa;
     }
