@@ -16,7 +16,7 @@
     <nav class="navbar bg-info navbar-expand-lg mb-4">
         <div class="container">
             <div class="navbar-brand">
-                <img src="https://picsum.photos/100/100" alt="logo" width="50" height="50">
+                <img src="https://picsum.photos/100/100.jpg" alt="logo" width="50" height="50" class="rounded-3">
                 <b>Web Title</b>
             </div>
             
@@ -93,7 +93,7 @@
             </div>
             <div class="row mb-4">
                 <div class="col-12 col-lg-2">
-                    <label for="text" class="form-label">Correo electrónico</label>
+                    <label for="text" class="form-label">Comentario</label>
                 </div>
                 <div class="col-12 col-lg-5">
                     <textarea class="form-control" id="text" rows="4"></textarea>
@@ -102,14 +102,17 @@
             <button class="btn btn-primary me-3">Enviar</button>
             <button class="btn btn-danger">Cancelar</button>
         </form>
-        
+    </div>
+    
+    <div class="container-fluid">
         <div id="carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
-            <div class="carousel-inner rounded-4 mb-5">
+            <div class="carousel-inner mb-5">
                 <div class="carousel-item active">
                     <img src="https://picsum.photos/854/480.jpg?random=1" class="d-block w-100" alt="carousel-1">
                 </div>
@@ -118,6 +121,9 @@
                 </div>
                 <div class="carousel-item">
                     <img src="https://picsum.photos/854/480.jpg?random=3" class="d-block w-100" alt="carousel-1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/854/480.jpg?random=4" class="d-block w-100" alt="carousel-1">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
@@ -129,12 +135,59 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        
-        <div class="post border rounded-4 p-4">
-            <h4><b>Título</b></h4>
-            <p class="ts-6 fw-light">02/02/2022 - username01</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam dolor, fuga non mollitia quod architecto illum magnam, ex in quibusdam vel cupiditate atque voluptas labore a iste ullam incidunt qui.</p>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mb-4">
+                <div class="border rounded-3 p-4">
+                    <h4><b>Título</b></h4>
+                    <p class="fw-light">02/02/2022 - username01</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam dolor, fuga non mollitia quod architecto illum magnam, ex in quibusdam vel cupiditate atque voluptas labore a iste ullam incidunt qui.</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis veniam temporibus laudantium magni facilis ab exercitationem voluptas, sapiente libero incidunt ipsam nulla aliquid amet alias placeat odio quod ex doloribus!</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mb-4">
+                <div class="border rounded-3 p-4">
+                    <h4><b>Título</b></h4>
+                    <p class="fw-light">02/02/2022 - username01</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam dolor, fuga non mollitia quod architecto illum magnam, ex in quibusdam vel cupiditate atque voluptas labore a iste ullam incidunt qui.</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis veniam temporibus laudantium magni facilis ab exercitationem voluptas, sapiente libero incidunt ipsam nulla aliquid amet alias placeat odio quod ex doloribus!</p>
+                </div>
+            </div>
         </div>
     </div>
+
+    <footer class="bg-info">
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-12 col-sm-6 offset-sm-3 col-lg-4 offset-lg-0 mb-5">
+                    <h5><b>Pie 1</b></h5>
+                    <ul class="list-group">
+                        <li class="list-group-item border-0 bg-transparent">Turnos</li>
+                        <li class="list-group-item border-0 bg-transparent">Tramites a distancia</li>
+                        <li class="list-group-item border-0 bg-transparent">Atención al ciudadano</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <h5><b>Pie 2</b></h5>
+                    <ul class="list-group">
+                        <li class="list-group-item border-0 bg-transparent">Nuestro país</li>
+                        <li class="list-group-item border-0 bg-transparent">Leyes argentinas</li>
+                        <li class="list-group-item border-0 bg-transparent">Organismos</li>
+                        <li class="list-group-item border-0 bg-transparent">Mapa del Estado</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <h5><b>Pie 3</b></h5>
+                    <ul class="list-group">
+                        <li class="list-group-item border-0 bg-transparent">Acerca de este sitio</li>
+                        <li class="list-group-item border-0 bg-transparent">Términos y condiciones</li>
+                        <li class="list-group-item border-0 bg-transparent">Sugerencias</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
