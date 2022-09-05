@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TP7 - Uso de APIs</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-neutral-900 flex flex-col gap-10 items-center text-white">
+    <h1 class="text-4xl font-bold">¿Cuándo es la proxima película del UCM?</h1>
+    <h2 class="text-3xl font-semibold">
+        <span id="title"></span> saldrá en <span id="days_until"></span> días
+    </h2>
+    <div class="text-center">
+        <p>Fecha: <span id="day"></span> de <span id="month"></span> de <span id="year"></span></p>
+        <p>Tipo: <span id="type"></span></p>
+    </div>
+    <img src="#" class="w-80" id="poster">
+
+    <script>
+        var apilink = "https://www.whenisthenextmcufilm.com/api"
+        var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
+        fetch(apilink).then(response => response.json()).then(data => {
+            document.getElementById("poster").src = data.poster_url
+            document.getElementById("title").innerHTML = data.title
+            document.getElementById("days_until").innerHTML = data.days_until
+            document.getElementById("day").innerHTML = data.release_date.split('-')[2]
+            document.getElementById("month").innerHTML = meses[data.release_date.split('-')[1] - 1]
+            document.getElementById("year").innerHTML = data.release_date.split('-')[0]
+            document.getElementById("type").innerHTML = data.type
+        })
+    </script>
+</body>
+</html>
