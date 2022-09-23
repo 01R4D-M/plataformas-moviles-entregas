@@ -6,35 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>TP7 - Uso de APIs</title>
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
-<body class="bg-neutral-900 flex flex-col gap-10 items-center text-white">
-    <h1 class="text-4xl font-bold">¿Cuándo es la proxima película del UCM?</h1>
-    <h2 class="text-3xl font-semibold">
-        <span id="title"></span> saldrá en <span id="days_until"></span> días
-    </h2>
-    <div class="text-center">
-        <p>Fecha: <span id="day"></span> de <span id="month"></span> de <span id="year"></span></p>
-        <p>Tipo: <span id="type"></span></p>
-    </div>
-    <img src="#" class="w-80" id="poster">
-
+<body>
     <script>
-        var apilink = "https://www.whenisthenextmcufilm.com/api"
-        var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+        var apilink = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151"
+        var list = document.createElement("ul")
+        list.classList.add("max-w-sm", "m-auto", "flex", "flex-col", "gap-5")
+        document.body.appendChild(list)
 
+        const pokeinfo = (link) => {
+            fetch(link).then(response => response.json()).then(data => {
+                var modal = document.createElement("div")
+                modal.classList.add("fixed", "top-0", "left-0", "w-screen", "h-screen", "bg-black/50", "grid", "items-center", "justify-center")
+                document.body.appendChild(modal)
+
+                var card = document.createElement("div")
+                card.classList.add("p-3", "bg-white", "rounded", "flex", "flex-col", "items-center")
+
+                var image = document.createElement("img")
+                image.src = data.sprites.other.dream_world.front_default
+                card.appendChild(image)
+
+                var name = document.createElement("div")
+                name.innerHTML = "N° " + data.id + ": " + data.name
+                card.appendChild(name)
+
+                var info = document.createElement("div")
+                info.classList.add("flex", "flex-row", "gap-3", "w-full", "justify-between")
+
+                var col1 = document.createElement("div")
+                col1.classList.add("flex", "flex-col")
+
+                var hp = document.createElement("span")
+                hp.innerHTML = "HP: " + data.stats[0].base_stat
+                
+                var attack = document.createElement("span")
+                attack.innerHTML = "Attack: " + data.stats[1].base_stat
+                
+                var defense = document.createElement("span")
+                defense.innerHTML = "Defense: " + data.stats[2].base_stat
+                
+                col1.appendChild(hp)
+                col1.appendChild(attack)
+                col1.appendChild(defense)
+                
+                info.appendChild(col1)
+
+                var col2 = document.createElement("div")
+                col2.classList.add("flex", "flex-col", "text-right")
+
+                var specialAttack = document.createElement("span")
+                specialAttack.innerHTML = "Ataque especial: " + data.stats[3].base_stat
+                
+                var specialDefense = document.createElement("span")
+                specialDefense.innerHTML = "Defensa especial: " + data.stats[4].base_stat
+                
+                var speed = document.createElement("span")
+                speed.innerHTML = "Velocidad: " + data.stats[5].base_stat
+
+                col2.appendChild(specialAttack)
+                col2.appendChild(specialDefense)
+                col2.appendChild(speed)
+
+                info.appendChild(col2)
+
+                card.appendChild(info)
+
+                modal.appendChild(card)
+
+                var close = document.createElement("button")
+                var closeIcon = document.createElement("img")
+                close.classList.add("w-10", "absolute", "top-5", "right-5")
+                closeIcon.src = "close-button.png"
+                close.appendChild(closeIcon)
+                close.onclick = function(){modal.remove()}
+                modal.appendChild(close)
+            })
+        }
+        
         fetch(apilink).then(response => response.json()).then(data => {
-            document.getElementById("poster").src = data.poster_url
-            document.getElementById("title").innerHTML = data.title
-            document.getElementById("days_until").innerHTML = data.days_until
-            document.getElementById("day").innerHTML = data.release_date.split('-')[2]
-            document.getElementById("month").innerHTML = meses[data.release_date.split('-')[1] - 1]
-            document.getElementById("year").innerHTML = data.release_date.split('-')[0]
-            document.getElementById("type").innerHTML = data.type
+            for(let i = 0; i < 151; i++){
+                var line = document.createElement("li")
+                line.classList.add("flex", "flex-row", "justify-between", "border-b-[1px]", "border-black")
+                list.appendChild(line)
+                line.innerHTML = "N° "+ (i+1) + ": " + data.results[i].name
+                button = document.createElement("button")
+                button.innerHTML = "ver"
+                button.classList.add("px-2", "bg-neutral-800", "text-white")
+                button.onclick = function(){ pokeinfo(data.results[i].url) }
+                line.appendChild(button)
+                
+            }
         })
     </script>
 </body>
