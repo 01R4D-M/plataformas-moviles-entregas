@@ -9,21 +9,17 @@
 </head>
 <body>
     <script>
-        var apilink = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151"
-        var list = document.createElement("ul")
-        list.classList.add("max-w-sm", "m-auto", "flex", "flex-col", "gap-5")
-        document.body.appendChild(list)
-
         const pokeinfo = (link) => {
             fetch(link).then(response => response.json()).then(data => {
                 var modal = document.createElement("div")
-                modal.classList.add("fixed", "top-0", "left-0", "w-screen", "h-screen", "bg-black/50", "grid", "items-center", "justify-center")
+                modal.classList.add("fixed", "top-0", "left-0", "w-screen", "h-screen", "bg-black/50", "grid", "items-center", "justify-center", "p-5")
                 document.body.appendChild(modal)
 
                 var card = document.createElement("div")
                 card.classList.add("p-3", "bg-white", "rounded", "flex", "flex-col", "items-center")
 
                 var image = document.createElement("img")
+                image.classList.add("w-60")
                 image.src = data.sprites.other.dream_world.front_default
                 card.appendChild(image)
 
@@ -51,10 +47,10 @@
                 col1.appendChild(defense)
                 
                 info.appendChild(col1)
-
+                
                 var col2 = document.createElement("div")
                 col2.classList.add("flex", "flex-col", "text-right")
-
+                
                 var specialAttack = document.createElement("span")
                 specialAttack.innerHTML = "Ataque especial: " + data.stats[3].base_stat
                 
@@ -63,17 +59,17 @@
                 
                 var speed = document.createElement("span")
                 speed.innerHTML = "Velocidad: " + data.stats[5].base_stat
-
+                
                 col2.appendChild(specialAttack)
                 col2.appendChild(specialDefense)
                 col2.appendChild(speed)
-
+                
                 info.appendChild(col2)
-
+                
                 card.appendChild(info)
-
+                
                 modal.appendChild(card)
-
+                
                 var close = document.createElement("button")
                 var closeIcon = document.createElement("img")
                 close.classList.add("w-10", "absolute", "top-5", "right-5")
@@ -83,16 +79,21 @@
                 modal.appendChild(close)
             })
         }
+
+        var apilink = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151"
+        var list = document.createElement("ul")
+        list.classList.add("max-w-sm", "m-auto", "flex", "flex-col", "gap-5", "p-5")
+        document.body.appendChild(list)
         
         fetch(apilink).then(response => response.json()).then(data => {
             for(let i = 0; i < 151; i++){
                 var line = document.createElement("li")
-                line.classList.add("flex", "flex-row", "justify-between", "border-b-[1px]", "border-black")
+                line.classList.add("flex", "flex-row", "justify-between")
                 list.appendChild(line)
                 line.innerHTML = "N° "+ (i+1) + ": " + data.results[i].name
                 button = document.createElement("button")
                 button.innerHTML = "ver"
-                button.classList.add("px-2", "bg-neutral-800", "text-white")
+                button.classList.add("px-2", "bg-red-700", "text-white", "rounded")
                 button.onclick = function(){ pokeinfo(data.results[i].url) }
                 line.appendChild(button)
                 
